@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Anu — 27 September</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{min-height:100vh;display:flex;justify-content:center;align-items:center;padding:25px;overflow-x:hidden;font-family:"Inter",sans-serif;background:radial-gradient(circle at 18% 20%,rgba(244,207,191,.55),transparent 32%),radial-gradient(circle at 82% 78%,rgba(232,218,190,.48),transparent 32%),linear-gradient(135deg,#fffaf4,#fdf9f5,#f8f5ee);color:#29252a}
+body:before,body:after{content:"";position:fixed;width:360px;height:360px;border-radius:50%;filter:blur(90px);opacity:.24;z-index:-1;animation:moveGlow 10s ease-in-out infinite alternate}
+body:before{background:#e9b9a7;top:-120px;left:-120px}
+body:after{background:#d9c8a4;bottom:-120px;right:-120px;animation-delay:2s}
+.card{width:100%;max-width:590px;padding:60px 45px;text-align:center;background:rgba(255,255,255,.78);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.8);border-radius:28px;box-shadow:0 25px 80px rgba(60,45,70,.12),inset 0 1px 0 rgba(255,255,255,.8);animation:cardAppear 1.3s cubic-bezier(.22,.61,.36,1)}
+.date{font-size:12px;letter-spacing:5px;color:#918992;margin-bottom:20px}
+h1{font-family:"Cormorant Garamond",Georgia,serif;font-size:58px;font-weight:500;letter-spacing:-1px;line-height:1;color:#29252a}
+.line{width:60px;height:2px;margin:25px auto;background:linear-gradient(90deg,transparent,#c989a5,transparent)}
+.intro{font-family:"Cormorant Garamond",Georgia,serif;font-size:21px;line-height:1.6;color:#706871;margin-bottom:30px}
+.button{padding:14px 31px;border-radius:50px;border:1px solid #c9a2b2;background:rgba(255,255,255,.45);color:#704d5e;font-size:14px;cursor:pointer;transition:.3s;box-shadow:0 6px 20px rgba(118,80,100,.06)}
+.button:hover{transform:translateY(-3px);background:#765064;color:#fff;box-shadow:0 10px 30px rgba(118,80,100,.22)}
+#wish{display:none;margin-top:32px;padding-top:30px;border-top:1px solid rgba(0,0,0,.07);animation:wishReveal 1.1s cubic-bezier(.22,.61,.36,1)}
+#wish p{font-family:"Cormorant Garamond",Georgia,serif;font-size:21px;line-height:1.65;color:#5e575f}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:30px 0 5px}
+.photo{height:190px;overflow:hidden;border-radius:18px;box-shadow:0 12px 30px rgba(60,45,70,.12);background:#eee;opacity:0;transform:translateY(18px) scale(.97);animation:photoIn .8s ease forwards}
+.photo:nth-child(2){animation-delay:.15s}.photo:nth-child(3){animation-delay:.3s}
+.photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s ease}
+.photo:hover img{transform:scale(1.05)}
+.closing{margin-top:24px;font-family:"Cormorant Garamond",Georgia,serif!important;font-size:29px!important;font-weight:600;color:#765064!important}
+.small{margin-top:9px;font-family:"Inter",sans-serif!important;font-size:11px!important;letter-spacing:1px;color:#aaa!important}
+.confetti{position:fixed;top:-20px;pointer-events:none;animation:fall linear forwards;z-index:20}
+@keyframes cardAppear{from{opacity:0;transform:translateY(35px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes wishReveal{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:translateY(0)}}
+@keyframes photoIn{to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:0}}
+@keyframes moveGlow{from{transform:translate(0,0) scale(1)}to{transform:translate(80px,50px) scale(1.2)}}
+@media(max-width:600px){.card{padding:45px 22px}.card h1{font-size:45px}.intro,#wish p{font-size:19px}.gallery{grid-template-columns:1fr 1fr}.photo{height:170px}.photo:first-child{grid-column:span 2;height:220px}.closing{font-size:26px!important}}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="date">27 SEPTEMBER</div>
+  <h1>Happy Birthday, Anu</h1>
+  <div class="line"></div>
+  <p class="intro">A small note for your special day.</p>
+  <button class="button" onclick="openWish()">Open →</button>
+
+  <div id="wish">
+    <p>
+      Wishing you a very happy birthday and a wonderful year ahead.
+      May the coming year bring you happiness, meaningful moments,
+      and plenty of reasons to smile.
+    </p>
+
+    <div class="gallery">
+      <div class="photo"><img src="anu-photo-1.jpg" alt="Anu"></div>
+      <div class="photo"><img src="anu-photo-2.jpg" alt="Anu"></div>
+      <div class="photo"><img src="anu-photo-3.jpg" alt="Anu"></div>
+    </div>
+
+    <p style="margin-top:22px;">
+      I hope you continue to grow, achieve the things you work for,
+      and enjoy every chapter that comes your way.
+    </p>
+
+    <p style="margin-top:16px;">Have a beautiful birthday and a genuinely good year ahead.</p>
+
+    <p class="closing">Happy Birthday, Anu. ✨</p>
+    <p class="small">Wishing you all the best.</p>
+  </div>
+</div>
+
+<script>
+function openWish(){
+  document.querySelector(".button").style.display="none";
+  document.querySelector(".intro").style.display="none";
+  document.getElementById("wish").style.display="block";
+  createConfetti();
+}
+function createConfetti(){
+  const symbols=["✦","✧","✨","·"];
+  for(let i=0;i<55;i++){
+    const item=document.createElement("div");
+    item.className="confetti";
+    item.innerText=symbols[Math.floor(Math.random()*symbols.length)];
+    item.style.left=Math.random()*100+"vw";
+    item.style.fontSize=(10+Math.random()*16)+"px";
+    item.style.animationDuration=(2.5+Math.random()*3)+"s";
+    document.body.appendChild(item);
+    setTimeout(()=>item.remove(),6000);
+  }
+}
+</script>
+</body>
+</html>
