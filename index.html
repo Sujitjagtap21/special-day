@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday, Anu</title>
+<title>Happy Birthday, Anu!</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -41,7 +41,7 @@ h1{font-family:"Cormorant Garamond",Georgia,serif;font-size:58px;font-weight:500
 </style>
 </head>
 <body>
-<div id="stars"></div>
+<div id="stars stars"></div>
 <div class="card">
 <div class="date">27 SEPTEMBER</div>
 <h1>Happy Birthday, Anu</h1>
@@ -52,7 +52,7 @@ h1{font-family:"Cormorant Garamond",Georgia,serif;font-size:58px;font-weight:500
 <p>Wishing you a very happy birthday and a wonderful year ahead. May the coming year bring you happiness, meaningful moments, and plenty of reasons to smile.</p>
 <p style="margin-top:22px">I hope you continue to grow, achieve the things you work for, and enjoy every chapter that comes your way.</p>
 <p style="margin-top:16px">Have a beautiful birthday and a genuinely good year ahead.</p>
-<p class="closing">Happy Birthday, Anu. ✨</p>
+<p class="closing">Happy Birthday, Anu!✨</p>
 <p class="small">Wishing you all the best.</p>
 </div>
 </div>
@@ -72,7 +72,7 @@ function openWish(){
  document.querySelector(".intro").style.display="none";
  document.getElementById("wish").classList.add("show");
  window.speechSynthesis.cancel();
- const voice=new SpeechSynthesisUtterance("Happy Birthday,Anu");
+ const voice=new SpeechSynthesisUtterance("Happy Birthday!");
  voice.lang="en-india";
  voice.rate=0.85;
  voice.pitch=1;
