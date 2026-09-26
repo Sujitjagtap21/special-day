@@ -24,6 +24,7 @@ body{
   align-items:center;
   padding:25px;
   overflow:hidden;
+
   font-family:Inter,sans-serif;
   color:#29252a;
 
@@ -39,13 +40,19 @@ body:before,
 body:after{
   content:"";
   position:fixed;
+
   width:360px;
   height:360px;
+
   border-radius:50%;
+
   filter:blur(90px);
+
   opacity:.20;
+
   z-index:0;
   pointer-events:none;
+
   animation:glow 14s ease-in-out infinite alternate;
 }
 
@@ -59,57 +66,123 @@ body:after{
   background:#d9c8a4;
   bottom:-120px;
   right:-120px;
+
   animation-delay:2s;
 }
 
-/* ✨ STARS */
+/* ✨ STAR FIELD */
 
-.stars,
-.stars2,
-.stars3{
+.star-field{
   position:fixed;
   inset:0;
-  pointer-events:none;
+
   z-index:1;
-  background-repeat:repeat;
+
+  pointer-events:none;
+
+  overflow:hidden;
 }
 
-.stars{
-  background-image:
-    radial-gradient(circle,
-      rgba(190,150,165,.70) 1px,
-      transparent 1.6px);
-  background-size:90px 90px;
-  animation:twinkle 4s ease-in-out infinite;
-  opacity:.50;
+.star{
+  position:absolute;
+
+  width:3px;
+  height:3px;
+
+  border-radius:50%;
+
+  background:#c49aaa;
+
+  box-shadow:
+    0 0 5px rgba(196,154,170,.8),
+    0 0 10px rgba(196,154,170,.35);
+
+  opacity:.25;
+
+  animation:
+    starTwinkle var(--duration) ease-in-out infinite;
+  
+  animation-delay:var(--delay);
 }
 
-.stars2{
-  background-image:
-    radial-gradient(circle,
-      rgba(210,185,145,.65) 1px,
-      transparent 1.6px);
-  background-size:130px 130px;
-  background-position:35px 20px;
-  animation:twinkle 6s ease-in-out infinite reverse;
-  opacity:.38;
+/* Some stars become little 4-point sparkles */
+
+.star.sparkle{
+  width:5px;
+  height:5px;
+
+  background:transparent;
+
+  box-shadow:none;
+
+  opacity:.35;
 }
 
-.stars3{
-  background-image:
-    radial-gradient(circle,
-      rgba(150,135,155,.55) 1px,
-      transparent 1.6px);
-  background-size:170px 170px;
-  background-position:80px 60px;
-  animation:twinkle 8s ease-in-out infinite;
-  opacity:.28;
+.star.sparkle:before,
+.star.sparkle:after{
+  content:"";
+
+  position:absolute;
+
+  left:50%;
+  top:50%;
+
+  transform:translate(-50%,-50%);
+
+  background:#c49aaa;
+
+  border-radius:10px;
+}
+
+.star.sparkle:before{
+  width:2px;
+  height:14px;
+
+  box-shadow:
+    0 0 7px rgba(196,154,170,.8);
+}
+
+.star.sparkle:after{
+  width:14px;
+  height:2px;
+
+  box-shadow:
+    0 0 7px rgba(196,154,170,.8);
+}
+
+/* Golden stars */
+
+.star.gold{
+  background:#d6bd83;
+
+  box-shadow:
+    0 0 6px rgba(214,189,131,.8),
+    0 0 12px rgba(214,189,131,.35);
+}
+
+.star.gold.sparkle:before,
+.star.gold.sparkle:after{
+  background:#d6bd83;
+}
+
+@keyframes starTwinkle{
+
+  0%,100%{
+    opacity:.12;
+    transform:scale(.65);
+  }
+
+  50%{
+    opacity:.9;
+    transform:scale(1.5);
+  }
 }
 
 /* Main card */
 
 .card{
   position:relative;
+
   z-index:2;
 
   width:100%;
@@ -125,6 +198,7 @@ body:after{
   -webkit-backdrop-filter:blur(18px);
 
   border:1px solid rgba(255,255,255,.85);
+
   border-radius:28px;
 
   box-shadow:
@@ -138,8 +212,11 @@ body:after{
 
 .date{
   font-size:12px;
+
   letter-spacing:5px;
+
   color:#918992;
+
   margin-bottom:20px;
 
   animation:up .7s .1s both;
@@ -148,11 +225,17 @@ body:after{
 /* Heading */
 
 h1{
-  font-family:"Cormorant Garamond",Georgia,serif;
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
 
   font-size:58px;
+
   font-weight:500;
+
   letter-spacing:-1px;
+
   line-height:1;
 
   color:#29252a;
@@ -182,9 +265,13 @@ h1{
 /* Intro */
 
 .intro{
-  font-family:"Cormorant Garamond",Georgia,serif;
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
 
   font-size:21px;
+
   line-height:1.6;
 
   color:#706871;
@@ -227,18 +314,20 @@ h1{
   transform:translateY(-3px);
 
   background:#765064;
+
   color:#fff;
 
   box-shadow:
     0 10px 30px rgba(118,80,100,.22);
 }
 
-/* Birthday message */
+/* Wish */
 
 #wish{
   display:none;
 
   margin-top:32px;
+
   padding-top:30px;
 
   border-top:
@@ -253,9 +342,13 @@ h1{
 }
 
 #wish p{
-  font-family:"Cormorant Garamond",Georgia,serif;
+  font-family:
+    "Cormorant Garamond",
+    Georgia,
+    serif;
 
   font-size:21px;
+
   line-height:1.65;
 
   color:#5e575f;
@@ -291,6 +384,7 @@ h1{
 /* Animations */
 
 @keyframes cardIn{
+
   from{
     opacity:0;
     transform:
@@ -307,6 +401,7 @@ h1{
 }
 
 @keyframes up{
+
   from{
     opacity:0;
     transform:translateY(8px);
@@ -319,6 +414,7 @@ h1{
 }
 
 @keyframes lineIn{
+
   from{
     opacity:0;
     transform:scaleX(.3);
@@ -331,6 +427,7 @@ h1{
 }
 
 @keyframes wishIn{
+
   from{
     opacity:0;
     transform:translateY(14px);
@@ -343,6 +440,7 @@ h1{
 }
 
 @keyframes glow{
+
   from{
     transform:
       translate(0,0)
@@ -353,16 +451,6 @@ h1{
     transform:
       translate(45px,25px)
       scale(1.08);
-  }
-}
-
-@keyframes twinkle{
-  0%,100%{
-    opacity:.18;
-  }
-
-  50%{
-    opacity:.70;
   }
 }
 
@@ -389,13 +477,11 @@ h1{
 
 <body>
 
-<!-- ✨ Background stars -->
+<!-- ✨ Stars -->
 
-<div class="stars"></div>
-<div class="stars stars2"></div>
-<div class="stars stars3"></div>
+<div class="star-field" id="starField"></div>
 
-<!-- Birthday card -->
+<!-- Birthday Card -->
 
 <div class="card">
 
@@ -448,13 +534,71 @@ h1{
 
 <script>
 
+/* Create individual animated stars */
+
+const starField = document.getElementById("starField");
+
+const starCount = 55;
+
+for(let i = 0; i < starCount; i++){
+
+  const star = document.createElement("span");
+
+  star.className = "star";
+
+  /* Random position */
+
+  star.style.left =
+    Math.random() * 100 + "%";
+
+  star.style.top =
+    Math.random() * 100 + "%";
+
+  /* Random animation speed */
+
+  star.style.setProperty(
+    "--duration",
+    (2.5 + Math.random() * 4) + "s"
+  );
+
+  /* Random delay */
+
+  star.style.setProperty(
+    "--delay",
+    (-Math.random() * 5) + "s"
+  );
+
+  /* Some stars are sparkles */
+
+  if(i % 7 === 0){
+
+    star.classList.add("sparkle");
+
+  }
+
+  /* Some stars are golden */
+
+  if(i % 11 === 0){
+
+    star.classList.add("gold");
+
+  }
+
+  starField.appendChild(star);
+}
+
+
+/* Open birthday message */
+
 function openWish(){
 
-  document.querySelector('.button').style.display = 'none';
+  document.querySelector(".button").style.display = "none";
 
-  document.querySelector('.intro').style.display = 'none';
+  document.querySelector(".intro").style.display = "none";
 
-  document.getElementById('wish').classList.add('show');
+  document
+    .getElementById("wish")
+    .classList.add("show");
 
 }
 
