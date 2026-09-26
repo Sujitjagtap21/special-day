@@ -1,185 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+function openWish(){
 
-<title>For Anu — 27 September</title>
+  document.querySelector(".button").style.display = "none";
+  document.querySelector(".intro").style.display = "none";
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  document.getElementById("wish").classList.add("show");
 
-<style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
+  const message = `
+    Happy Birthday, Anu.
 
-body{
-  min-height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  padding:25px;
-  overflow:hidden;
+    Wishing you a very happy birthday and a wonderful year ahead.
+    May the coming year bring you happiness, meaningful moments,
+    and plenty of reasons to smile.
 
-  font-family:Inter,sans-serif;
-  color:#29252a;
+    I hope you continue to grow, achieve the things you work for,
+    and enjoy every chapter that comes your way.
 
-  background:
-    radial-gradient(circle at 18% 20%,rgba(244,207,191,.55),transparent 32%),
-    radial-gradient(circle at 82% 78%,rgba(232,218,190,.48),transparent 32%),
-    linear-gradient(135deg,#fffaf4,#fdf9f5,#f8f5ee);
-}
+    Have a beautiful birthday and a genuinely good year ahead.
 
-/* Soft background glow */
+    Happy Birthday, Anu.
 
-body:before,
-body:after{
-  content:"";
-  position:fixed;
+    Wishing you all the best.
+  `;
 
-  width:360px;
-  height:360px;
+  window.speechSynthesis.cancel();
 
-  border-radius:50%;
+  const voice = new SpeechSynthesisUtterance(message);
 
-  filter:blur(90px);
+  voice.lang = "en-US";
+  voice.rate = 0.88;
+  voice.pitch = 1.0;
+  voice.volume = 1.0;
 
-  opacity:.20;
-
-  z-index:0;
-  pointer-events:none;
-
-  animation:glow 14s ease-in-out infinite alternate;
-}
-
-body:before{
-  background:#e9b9a7;
-  top:-120px;
-  left:-120px;
-}
-
-body:after{
-  background:#d9c8a4;
-  bottom:-120px;
-  right:-120px;
-
-  animation-delay:2s;
-}
-
-/* ✨ STAR FIELD */
-
-.star-field{
-  position:fixed;
-  inset:0;
-
-  z-index:1;
-
-  pointer-events:none;
-
-  overflow:hidden;
-}
-.star{
-  position:absolute;
-
-  width:5px;
-  height:5px;
-
-  border-radius:50%;
-
-  background:white;
-
-  box-shadow:
-    0 0 6px 2px rgba(255,255,255,.9),
-    0 0 14px 4px rgba(220,170,190,.55);
-
-  animation:
-    starMove var(--duration) ease-in-out infinite;
-
-  animation-delay:var(--delay);
-}
-
-.star.sparkle{
-  width:8px;
-  height:8px;
-
-  background:transparent;
-
-  box-shadow:none;
-}
-
-.star.sparkle:before,
-.star.sparkle:after{
-  content:"";
-
-  position:absolute;
-
-  left:50%;
-  top:50%;
-
-  transform:translate(-50%,-50%);
-
-  background:#fff;
-
-  box-shadow:
-    0 0 8px 3px rgba(255,255,255,.9);
-}
-
-.star.sparkle:before{
-  width:2px;
-  height:22px;
-}
-
-.star.sparkle:after{
-  width:22px;
-  height:2px;
-}
-
-.star.gold:before,
-.star.gold:after{
-  background:#e6c879;
-
-  box-shadow:
-    0 0 10px 3px rgba(230,200,121,.8);
-}
-
-@keyframes starMove{
-
-  0%{
-    opacity:.15;
-    transform:
-      translateY(12px)
-      scale:.5;
-  }
-
-  25%{
-    opacity:1;
-    transform:
-      translateY(0)
-      scale:1.3;
-  }
-
-  50%{
-    opacity:.35;
-    transform:
-      translateY(-8px)
-      scale:.7;
-  }
-
-  75%{
-    opacity:1;
-    transform:
-      translateY(-15px)
-      scale:1.4;
-  }
-
-  100%{
-    opacity:.15;
-    transform:
-      translateY(-25px)
-      scale:.5;
-  }
+  window.speechSynthesis.speak(voice);
 }
